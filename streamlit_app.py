@@ -3,7 +3,7 @@ from streamlit.logger import get_logger
 
 st.set_page_config(page_title="| Home", page_icon="👋")
 st.write("# Summary")
-st.sidebar.success("Select a demo above.")
+#st.sidebar.success("Select a demo above.")
 st.markdown(
         """
         I am a computer science lecturer at Universitas Bunda Mulia (UBM) with 5+ years of
@@ -26,5 +26,5 @@ st.markdown(
     """)
 
 add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone"))
+    "My Prototipe list",
+    ("Leaf Disease", "Phishing link"))
