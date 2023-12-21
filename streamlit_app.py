@@ -1,40 +1,36 @@
-import altair as alt
-import numpy as np
-import pandas as pd
 import streamlit as st
+from streamlit.logger import get_logger
 
-"""
-# Welcome to Streamlit!
+LOGGER = get_logger(__name__)
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:.
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
 
-In the meantime, below is an example of what you can do with just a few lines of code:
-"""
+def run():
+    st.set_page_config(
+        page_title="| Home",
+        page_icon="👋",)
+    st.write("# Summary")
+    st.sidebar.success("Select a demo above.")
 
-num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
-num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
+    st.markdown(
+        """
+        I am a computer science lecturer at Universitas Bunda Mulia (UBM) with 5+ years of
+        experience in teaching and research. The research topics I cover include Optimization,
+        Image Processing, Expert Systems, Machine Learning, and Artificial Intelligence.
+        The conclusions of all of my research are published in internationally accredited
+        journals, national journals, or conferences and hope to be feedback for review,
+        replicated, or applied in an organization. Some demo systems that have been created
+        can be **viewed on the sidebar 👈**
+        
+        ### Whare you can find me?
+        - in my publication [Google scholar](https://scholar.google.com/citations?user=LxbIO5sAAAAJ)
+        - in my code documentation [Github](https://github.com/firstime09)
+        - in my social media [LinkedIn](https://id.linkedin.com/in/felliks-feiters-tampinongkol-100084174)
+        
+        ### See more complex demos
+        - Use a neural net to [analyze the Udacity Self-driving Car Image
+          Dataset](https://github.com/streamlit/demo-self-driving)
+        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
+    """)
 
-indices = np.linspace(0, 1, num_points)
-theta = 2 * np.pi * num_turns * indices
-radius = indices
-
-x = radius * np.cos(theta)
-y = radius * np.sin(theta)
-
-df = pd.DataFrame({
-    "x": x,
-    "y": y,
-    "idx": indices,
-    "rand": np.random.randn(num_points),
-})
-
-st.altair_chart(alt.Chart(df, height=700, width=700)
-    .mark_point(filled=True)
-    .encode(
-        x=alt.X("x", axis=None),
-        y=alt.Y("y", axis=None),
-        color=alt.Color("idx", legend=None, scale=alt.Scale()),
-        size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
-    ))
+if __name__ == "__main__":
+    run()
