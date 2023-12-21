@@ -26,5 +26,5 @@ st.markdown(
     """)
 
 add_selectbox = st.sidebar.selectbox(
-    "My Prototipe list",
-    ("Leaf Disease", "Phishing link"))
+    "###My Prototipe list",
+    ("","Leaf Disease", "Phishing link"))
