@@ -24,13 +24,7 @@ import streamlit as st
 # if __name__ == "__main__":
 #   main()
 
-with st.sidebar:
-  st.header('My Prototipe List')
-  api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
-  select_api = st.selectbox(label='Choose what you want to try:',
-                              options=api_options)
-
-st.set_page_config(page_title="| Home", page_icon="👋")
+st.set_page_config(page_title='| Home Page', page_icon='👋')
 st.write("# Summary")
 st.markdown(
   """
@@ -49,3 +43,10 @@ st.markdown(
         
         ### Under Maintenance    
   """)
+
+with st.sidebar:
+  st.header('My Prototipe List')
+  api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
+  select_api = st.selectbox(label='Choose what you want to try:',
+                              options=api_options)
+
