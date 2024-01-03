@@ -24,9 +24,9 @@ def main():
 if __name__ == "__main__":
   main()
 
-  st.set_page_config(page_title="| Home", page_icon="👋")
-  st.write("# Summary")
-  st.markdown(
+st.set_page_config(page_title="| Home", page_icon="👋")
+st.write("# Summary")
+st.markdown(
         """
         I am a computer science lecturer at Universitas Bunda Mulia (UBM) with 5+ years of
         experience in teaching and research. The research topics I cover include Optimization,
