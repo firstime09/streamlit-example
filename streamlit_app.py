@@ -9,15 +9,16 @@ def main():
     api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
     select_api = st.selectbox(label='Choose what you want to try:',
                               options=api_options)
-    page_option = (list(ST_DEMO_LEAF.keys())
-                   if select_api == 'Leaf Diseases Detection'
-                   else list(ST_DEMO_PHISHING.keys()))
+    # page_option = (list(ST_DEMO_LEAF.keys())
+    #                if select_api == 'Leaf Diseases Detection'
+    #                else list(ST_DEMO_PHISHING.keys()))
   
-    selected_page = st.selectbox("What would you like to try?", options=page_option)
+    # selected_page = st.selectbox("What would you like to try?", options=page_option)
 
-    demo = (ST_DEMO_PHISHING[selected_page]
+    demo = (list(ST_DEMO_PHISHING.keys())
             if select_api == 'Phishing Link Detection'
-            else ST_DEMO_LEAF[selected_page])
+            else list(ST_DEMO_LEAF.keys()))
+    
   demo()
 
 if __name__ == "__main__":
