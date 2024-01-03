@@ -1,7 +1,7 @@
 import streamlit as st
-from demo_leafDiseases import ST_DEMO_LEAF
-from demo_phishingLink import ST_DEMO_PHISHING
-from streamlit.logger import get_logger
+# from demo_leafDiseases import ST_DEMO_LEAF
+# from demo_phishingLink import ST_DEMO_PHISHING
+# from streamlit.logger import get_logger
 
 # def main():
 #   with st.sidebar:
@@ -24,9 +24,10 @@ from streamlit.logger import get_logger
 # if __name__ == "__main__":
 #   main()
 
-st.header('My Prototipe List')
-api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
-select_api = st.selectbox(label='Choose what you want to try:',
+with st.sidebar:
+  st.header('My Prototipe List')
+  api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
+  select_api = st.selectbox(label='Choose what you want to try:',
                               options=api_options)
 
 st.set_page_config(page_title="| Home", page_icon="👋")
