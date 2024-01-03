@@ -13,7 +13,7 @@ def main():
                    if select_api == 'Leaf Diseases Detection'
                    else list(ST_DEMO_PHISHING.keys()))
   
-    selected_page = st.selectbox(options=page_option)
+    selected_page = st.selectbox("What would you like to try?", options=page_option)
 
     demo = (ST_DEMO_PHISHING[selected_page]
             if select_api == 'Phishing Link Detection'
