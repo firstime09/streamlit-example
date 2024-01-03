@@ -3,26 +3,31 @@ from demo_leafDiseases import ST_DEMO_LEAF
 from demo_phishingLink import ST_DEMO_PHISHING
 from streamlit.logger import get_logger
 
-def main():
-  with st.sidebar:
-    st.header('My Prototipe List')
-    api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
-    select_api = st.selectbox(label='Choose what you want to try:',
-                              options=api_options)
+# def main():
+#   with st.sidebar:
+#     st.header('My Prototipe List')
+#     api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
+#     select_api = st.selectbox(label='Choose what you want to try:',
+#                               options=api_options)
     
-    page_option = (list(ST_DEMO_LEAF.keys())
-                   if select_api == 'Leaf Diseases Detection'
-                   else list(ST_DEMO_PHISHING.keys()))
+#     page_option = (list(ST_DEMO_LEAF.keys())
+#                    if select_api == 'Leaf Diseases Detection'
+#                    else list(ST_DEMO_PHISHING.keys()))
   
-    # selected_page = st.selectbox("What would you like to try?", options=page_option)
+#     # selected_page = st.selectbox("What would you like to try?", options=page_option)
 
-    demo = (ST_DEMO_PHISHING[page_option]
-            if select_api == 'Phishing Link Detection'
-            else ST_DEMO_LEAF[page_option])
-  demo()
+#     demo = (ST_DEMO_PHISHING[page_option]
+#             if select_api == 'Phishing Link Detection'
+#             else ST_DEMO_LEAF[page_option])
+#   demo()
 
-if __name__ == "__main__":
-  main()
+# if __name__ == "__main__":
+#   main()
+
+st.header('My Prototipe List')
+api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
+select_api = st.selectbox(label='Choose what you want to try:',
+                              options=api_options)
 
 st.set_page_config(page_title="| Home", page_icon="👋")
 st.write("# Summary")
