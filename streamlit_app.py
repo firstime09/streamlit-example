@@ -15,10 +15,9 @@ def main():
   
     # selected_page = st.selectbox("What would you like to try?", options=page_option)
 
-    demo = (list(ST_DEMO_PHISHING.keys())
+    demo = (ST_DEMO_PHISHING[select_api]
             if select_api == 'Phishing Link Detection'
-            else list(ST_DEMO_LEAF.keys()))
-    
+            else ST_DEMO_LEAF[select_api])
   demo()
 
 if __name__ == "__main__":
