@@ -33,7 +33,7 @@ with st.sidebar:
 st.set_page_config(page_title="| Home", page_icon="👋")
 st.write("# Summary")
 st.markdown(
-        """
+  """
         I am a computer science lecturer at Universitas Bunda Mulia (UBM) with 5+ years of
         experience in teaching and research. The research topics I cover include Optimization,
         Image Processing, Expert Systems, Machine Learning, and Artificial Intelligence.
@@ -48,4 +48,4 @@ st.markdown(
         - in my social media [LinkedIn](https://id.linkedin.com/in/felliks-feiters-tampinongkol-100084174)
         
         ### Under Maintenance    
-        """)
+  """)
