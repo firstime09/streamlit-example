@@ -4,10 +4,21 @@ import streamlit as st
 # from streamlit.logger import get_logger
 
 def main_page():
-    st.set_page_config(page_title="| Home", page_icon="👋")
-    st.write("# Summary")
     st.markdown("# Main page 🎈")
-    st.markdown(
+    st.sidebar.markdown("# Main page 🎈")
+
+def page2():
+    st.markdown("# Page 2 ❄️")
+    st.sidebar.markdown("# Page 2 ❄️")
+
+def page3():
+    st.markdown("# Page 3 🎉")
+    st.sidebar.markdown("# Page 3 🎉")
+
+st.set_page_config(page_title="| Home", page_icon="👋")
+st.write("# Summary")
+#st.sidebar.success("Select a demo above.")
+st.markdown(
         """
         I am a computer science lecturer at Universitas Bunda Mulia (UBM) with 5+ years of
         experience in teaching and research. The research topics I cover include Optimization,
@@ -24,15 +35,6 @@ def main_page():
         
         ### Under Maintenance    
         """)
-    st.sidebar.markdown("# Main page 🎈")
-
-def page2():
-    st.markdown("# Page 2 ❄️")
-    st.sidebar.markdown("# Page 2 ❄️")
-
-def page3():
-    st.markdown("# Page 3 🎉")
-    st.sidebar.markdown("# Page 3 🎉")
 
 page_names_to_funcs = {
     "Main Page": main_page,
@@ -43,26 +45,7 @@ page_names_to_funcs = {
 selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
 page_names_to_funcs[selected_page]()
 
-# st.set_page_config(page_title="| Home", page_icon="👋")
-# st.write("# Summary")
-# #st.sidebar.success("Select a demo above.")
-# st.markdown(
-#         """
-#         I am a computer science lecturer at Universitas Bunda Mulia (UBM) with 5+ years of
-#         experience in teaching and research. The research topics I cover include Optimization,
-#         Image Processing, Expert Systems, Machine Learning, and Artificial Intelligence.
-#         The conclusions of all of my research are published in internationally accredited
-#         journals, national journals, or conferences and hope to be feedback for review,
-#         replicated, or applied in an organization. Some demo systems that have been created
-#         can be **viewed on the sidebar 👈**
-        
-#         ### Whare you can find me?
-#         - in my publication [Google scholar](https://scholar.google.com/citations?user=LxbIO5sAAAAJ)
-#         - in my code documentation [Github](https://github.com/firstime09)
-#         - in my social media [LinkedIn](https://id.linkedin.com/in/felliks-feiters-tampinongkol-100084174)
-        
-#         ### Under Maintenance    
-#         """)
+
 
 # # def main():
 # #   with st.sidebar:
