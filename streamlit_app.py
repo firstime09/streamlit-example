@@ -1,24 +1,10 @@
 import streamlit as st
-# from demo_leafDiseases import ST_DEMO_LEAF
-# from demo_phishingLink import ST_DEMO_PHISHING
-# from streamlit.logger import get_logger
-
-def main_page():
-    st.markdown("# Home Page 🏠")
-    st.sidebar.header('My Prototipe List')
-    st.sidebar.markdown("# Home page 🏠")
-
-def page2():
-    st.markdown("# Page 2 ❄️")
-    st.sidebar.markdown("# Page 2 ❄️")
-
-def page3():
-    st.markdown("# Page 3 🎉")
-    st.sidebar.markdown("# Page 3 🎉")
+from demo_leafDiseases import ST_DEMO_LEAF
+from demo_phishingLink import ST_DEMO_PHISHING
+from streamlit.logger import get_logger
 
 st.set_page_config(page_title="| Home", page_icon="👋")
 st.write("# Summary")
-#st.sidebar.success("Select a demo above.")
 st.markdown(
         """
         I am a computer science lecturer at Universitas Bunda Mulia (UBM) with 5+ years of
@@ -37,38 +23,23 @@ st.markdown(
         ### Under Maintenance    
         """)
 
-page_names_to_funcs = {
-    "Main Page": main_page,
-    "Page 2": page2,
-    "Page 3": page3,
-}
-
-selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
-page_names_to_funcs[selected_page]()
-
-
-# # def main():
-# #   with st.sidebar:
-# #     st.header('My Prototipe List')
-# #     api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
-# #     select_api = st.selectbox(label='Choose what you want to try:',
-# #                               options=api_options)
+def main():
+  with st.sidebar:
+    st.header('My Prototipe List')
+    api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
+    select_api = st.selectbox(label='Choose what you want to try:',
+                              options=api_options)
     
-# #     if select_api == 'Leaf Diseases Detection':
-# #       ST_DEMO_LEAF.keys()
-# #     else: 
-# #       ST_DEMO_PHISHING.keys()
-
-# #     # page_option = (list(ST_DEMO_LEAF.keys())
-# #     #                if select_api == 'Leaf Diseases Detection'
-# #     #                else list(ST_DEMO_PHISHING.keys()))
+    page_option = (list(ST_DEMO_LEAF.keys())
+                   if select_api == 'Leaf Diseases Detection'
+                   else list(ST_DEMO_PHISHING.keys()))
   
-# #     # # selected_page = st.selectbox("What would you like to try?", options=page_option)
+    # selected_page = st.selectbox("What would you like to try?", options=page_option)
 
-# #     # demo = (ST_DEMO_PHISHING[page_option]
-# #     #         if select_api == 'Phishing Link Detection'
-# #     #         else ST_DEMO_LEAF[page_option])
-# #   demo()
+    demo = (ST_DEMO_PHISHING[page_option]
+            if select_api == 'Phishing Link Detection'
+            else ST_DEMO_LEAF[page_option])
+  demo()
 
-# # if __name__ == "__main__":
-# #   main()
+if __name__ == "__main__":
+  main()
