@@ -4,6 +4,23 @@ from demo_phishingLink import ST_DEMO_PHISHING
 from streamlit.logger import get_logger
 
 def main():
+  with st.sidebar:
+    st.header('My Prototipe List')
+    api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
+    select_api = st.selectbox(label='Choose what you want to try:',
+                              options=api_options)
+  page_option = (list(ST_DEMO_LEAF.keys())
+                 if select_api == 'Leaf Diseases Detection'
+                 else list(ST_DEMO_PHISHING.keys()))
+  
+  selected_page = st.selectbox(options=page_option)
+
+  demo = (ST_DEMO_PHISHING[selected_page]
+          if select_api == 'Phishing Link Detection'
+          else ST_DEMO_LEAF[selected_page])
+  demo()
+
+if __name__ == "__main__":
   st.set_page_config(page_title="| Home", page_icon="👋")
   st.write("# Summary")
   #st.sidebar.success("Select a demo above.")
@@ -23,27 +40,5 @@ def main():
         - in my social media [LinkedIn](https://id.linkedin.com/in/felliks-feiters-tampinongkol-100084174)
         
         ### Under Maintenance    
-        """
-        )
-  
-  # with st.sidebar.selectbox(
-  #   "My Prototipe list",
-  #   ("---My List---","Leaf Disease", "Phishing link"))
-
-  with st.sidebar:
-    st.header('My Prototipe List')
-    api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
-    select_api = st.selectbox(label='Choose what you want to try:',
-                              options=api_options)
-  page_option = (list(ST_DEMO_LEAF.keys())
-                 if select_api == 'Leaf Diseases Detection'
-                 else list(ST_DEMO_PHISHING.keys()))
-  selected_page = st.selectbox(options=page_option)
-
-  demo = (ST_DEMO_PHISHING[selected_page]
-          if select_api == 'Phishing Link Detection'
-          else ST_DEMO_LEAF[selected_page])
-  demo()
-
-if __name__ == "__main__":
+        """)
   main()
