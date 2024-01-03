@@ -1,10 +1,13 @@
 import streamlit as st
+from demo_leafDiseases import ST_DEMO_LEAF
+from demo_phishingLink import ST_DEMO_PHISHING
 from streamlit.logger import get_logger
 
-st.set_page_config(page_title="| Home", page_icon="👋")
-st.write("# Summary")
-#st.sidebar.success("Select a demo above.")
-st.markdown(
+def main():
+  st.set_page_config(page_title="| Home", page_icon="👋")
+  st.write("# Summary")
+  #st.sidebar.success("Select a demo above.")
+  st.markdown(
         """
         I am a computer science lecturer at Universitas Bunda Mulia (UBM) with 5+ years of
         experience in teaching and research. The research topics I cover include Optimization,
@@ -19,12 +22,28 @@ st.markdown(
         - in my code documentation [Github](https://github.com/firstime09)
         - in my social media [LinkedIn](https://id.linkedin.com/in/felliks-feiters-tampinongkol-100084174)
         
-        ### See more complex demos
-        - Use a neural net to [analyze the Udacity Self-driving Car Image
-          Dataset](https://github.com/streamlit/demo-self-driving)
-        - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-    """)
+        ### Under Maintenance    
+        """
+        )
+  
+  # with st.sidebar.selectbox(
+  #   "My Prototipe list",
+  #   ("---My List---","Leaf Disease", "Phishing link"))
 
-add_selectbox = st.sidebar.selectbox(
-    "My Prototipe list",
-    ("---My List---","Leaf Disease", "Phishing link"))
+  with st.sidebar:
+    st.header('My Prototipe List')
+    api_options = ('Leaf Diseases Detection', 'Phishing Link Detection')
+    select_api = st.selectbox(label='Choose what you want to try:',
+                              options=api_options)
+  page_option = (list(ST_DEMO_LEAF.keys())
+                 if select_api == 'Leaf Diseases Detection'
+                 else list(ST_DEMO_PHISHING.keys()))
+  selected_page = st.selectbox(options=page_option)
+
+  demo = (ST_DEMO_PHISHING[selected_page]
+          if select_api == 'Phishing Link Detection'
+          else ST_DEMO_LEAF[selected_page])
+  demo()
+
+if __name__ == "__main__":
+  main()
