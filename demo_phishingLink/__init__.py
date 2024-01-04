@@ -1,3 +1,0 @@
-from .link_phishing import ST_PHISHING_DETECTION
-
-ST_DEMO_PHISHING = {**ST_PHISHING_DETECTION}
