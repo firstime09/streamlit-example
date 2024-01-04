@@ -6,10 +6,9 @@ import streamlit as st
 def app():
     st.title('Leaf Diseases Detection')
     st.markdown(
-        """
-            In this case, we build the Machine Learning Model using two types
-            of leaf diseases which are spot and blight. Details from the code
-            and methods can be read in my publication list on Google Scholar
+        """ In this case, we build the Machine Learning Model using two types of
+            leaf diseases which are spot and blight. Details from the code and
+            methods can be read in my publication list on Google Scholar
             about `Leaf Diseases Segmentation`.
         """)
 
