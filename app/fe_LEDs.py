@@ -1,7 +1,6 @@
 import streamlit as st
-# from sklearn import datasets
-# from sklearn.model_selection import train_test_split
-# from sklearn.ensemble import RandomForestClassifier
+import numpy as np
+import cv2
 
 def app():
     st.title('Leaf Diseases Detection')
@@ -11,16 +10,15 @@ def app():
             methods can be read in my publication list on Google Scholar
             about `Leaf Diseases Segmentation`.
         """)
+    uploaded_file = st.file_uploader("Choose a file", type=["png", "jpg", "jpeg"])
 
-    # iris = datasets.load_iris()
-    # X = iris.data
-    # Y = iris.target
+    if uploaded_file is not None:
+        file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
+        opencv_img = cv2.imdecode(file_bytes, 1)
 
-    # st.header('Model performance')
-    # X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2,
-    #                                                     random_state=42)
-    # clf = RandomForestClassifier()
-    # clf.fit(X_train, Y_train)
-    # score = clf.score(X_test, Y_test)
-    # st.write('Accuracy:')
-    # st.write(score)
+        st.image(
+            opencv_img, caption="Uploaded Image.", use_column_width=True, channels="BGR"
+        )
+        b,g,r = cv2.split(opencv_img)
+        if st.button('Diseases Area'):
+            st.image(g-r)
